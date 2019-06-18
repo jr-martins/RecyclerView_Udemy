@@ -8,10 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.loopwiki.recyclerview.R;
+import com.loopwiki.recyclerview.entities.Car;
 import com.loopwiki.recyclerview.viewholder.CarViewHolder;
 
+import java.util.List;
+
 public class CarListAdapter extends RecyclerView.Adapter<CarViewHolder> {
-    @NonNull
+
+    private List<Car> mListCars;
+
+    public CarListAdapter(List<Car> cars){
+        this.mListCars = cars;
+    }
+
     @Override
     public CarViewHolder onCreateViewHolder(ViewGroup parent, int i) {
 
@@ -25,13 +34,18 @@ public class CarListAdapter extends RecyclerView.Adapter<CarViewHolder> {
 
     }
 
+    //Metodo chamado todas vez que uma linha é inserida no layout
     @Override
-    public void onBindViewHolder(@NonNull CarViewHolder carViewHolder, int i) {
+    public void onBindViewHolder(CarViewHolder holder, int position) {
+
+        Car car = this.mListCars.get(position);
+        holder.bindData(car);
+
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return this.mListCars.size();
     }
 }

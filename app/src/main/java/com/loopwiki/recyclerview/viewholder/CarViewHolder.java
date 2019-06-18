@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.loopwiki.recyclerview.R;
+import com.loopwiki.recyclerview.entities.Car;
 
 public class CarViewHolder extends RecyclerView.ViewHolder {
 
@@ -15,5 +16,11 @@ public class CarViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         this.mTextModel = (TextView) itemView.findViewById(R.id.text_model) ;
+    }
+
+    public void bindData(Car car){
+        this.mTextModel.setText(car.model);
+
+
     }
 }
